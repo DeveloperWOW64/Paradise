@@ -1,10 +1,19 @@
 import time
+from playsound import playsound
 
+# System Variables
 enableTest=True
-# Italic text
-txt = '\x1B[3mThis is italic text\x1B[23m'
-print(txt)
+playground=1
 
+# Playground
+if playground == 1 :
+    # playsound('HappyBirthday.mp3')
+    import turtle
+    turtle.setup(500,500)
+    turtle.Screen().bgcolor("blue")
+    turtle.shape('turtle')
+
+# Test runtime data
 if enableTest == True :
     islName="Test"
     apt1Nick="Andrex"
@@ -14,6 +23,17 @@ if enableTest == True :
     apt1Birth="13/04/2001"
     gameStart=True
 
+# Game Extra Content
+marketintro=f"'Hello! And welcome to the {islName} supermarket. Here are the food categories we sell: Dinners, lunches, deserts and drinks.\nWhat would you like to buy?\n'"
+firstMsgKind = f"'Hello! my name is {apt1Nick}. I hope you have a wonderful day. Wait what!!? You look just like me!'"
+firstMsgCool = f"'Yo! The name's {apt1Famly}. {apt1Nick} {apt1Famly}. What the-? You look just like me!'"
+firstMsgCaut = f"'Wait.. So you're - me?? This is too much. I need a lie down. Now where's my portable mattress? I usually carry it with me everywhere since I'm such a cautious person. Anyway, pleased to meet you.'"
+firstMsgEnerg = f"'🎵Laa Dee Daa, Doo Dee dee! I'm so full of energy!🎵 SO pleased to meet you. What wha-? You're like my, my doppleganger!'"
+dinners = ['English Breakfast', 'Roast Dinner', 'Lasagne', 'Spaghetti Bolognese', 'Pasta with no sauce', 'Spaghetti with Meatballs', 'Chicken Wings', 'Vegetarian Pie', 'Pasta Pesto', 'Vegetarian meat', 'Pizza']
+marketDin = "We sell English Breakfast, Roast Dinner, Lasagne, Spaghetti Bolognese, Pasta with no sauce, Spaghetti with Meatballs, Chicken Wings, Vegetarian Pie, Pasta Pesto, Vegetarian meat and Pizza. Which dinner do you wish to purchase?"
+
+
+# Intro
 if enableTest == False :
     print("Ah yes, paradise. A beautiful island in an alternate dimension. All yours.")
     time.sleep(2.5)
@@ -35,11 +55,8 @@ if enableTest == False :
     time.sleep(3)
     gameStart=True
 
+# Game
 if gameStart == True :
-    firstMsgKind = f"'Hello! my name is {apt1Nick}. I hope you have a wonderful day. Wait what!!? You look just like me!'"
-    firstMsgCool = f"'Yo! The name's {apt1Famly}. {apt1Nick} {apt1Famly}. What the-? You look just like me!'"
-    firstMsgCaut = f"'Wait.. So you're - me?? This is too much. I need a lie down. Now where's my portable mattress? I usually carry it with me everywhere since I'm such a cautious person. Anyway, pleased to meet you.'"
-    firstMsgEnerg = f"'🎵Laa Dee Daa, Doo Dee dee! I'm so full of energy!🎵 SO pleased to meet you. What wha-? You're like my, my doppleganger!'"
     if apt1Personal == "energetic" :
         print(firstMsgEnerg)
     if apt1Personal == "cautious" :
@@ -57,8 +74,10 @@ if gameStart == True :
     time.sleep(1.6)
     print("'I'm a bit hungry. Could you get me some food?'\n\n")
     time.sleep(2)
-    print(f"Uh oh. It seems like {apt1Nick} is hungry. Luckily for you, I've given you some money to get a supermarket on {islName}\nI hope it will finish building soon.")
+    print(f"Uh oh. It seems like {apt1Nick} is hungry. Luckily for you, I've given you some money to get a supermarket on {islName} Island.\nI hope it will finish building soon.")
     time.sleep(3)
-    print("How quick! It's already finished. Let's go inside.")
+    print("How quick! It's already finished. Let's go inside.\n\n")
     time.sleep(1)
-    
+    crntbuy=input(marketintro)
+    if crntbuy == "dinner" :
+        crntbuy=input(marketDin)
