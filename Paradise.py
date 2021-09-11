@@ -2,8 +2,8 @@ import time
 from playsound import playsound
 
 # System Variables
-enableTest=True
-playground=1
+enableTest=False
+playground=0
 
 # Playground
 if playground == 1 :
