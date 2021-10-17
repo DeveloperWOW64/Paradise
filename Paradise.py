@@ -24,14 +24,15 @@ if enableTest == True :
     gameStart=True
 
 # Game Extra Content
-marketintro=f"'Hello! And welcome to the {islName} supermarket. Here are the food categories we sell: Dinners, lunches, deserts and drinks.\nWhat would you like to buy?\n'"
+marketIntro=f"'Hello! And welcome to the {islName} supermarket. Here are the food categories we sell: Dinners, lunches, deserts and drinks.\nWhat would you like to buy?\n'"
 firstMsgKind = f"'Hello! my name is {apt1Nick}. I hope you have a wonderful day. Wait what!!? You look just like me!'"
 firstMsgCool = f"'Yo! The name's {apt1Famly}. {apt1Nick} {apt1Famly}. What the-? You look just like me!'"
 firstMsgCaut = f"'Wait.. So you're - me?? This is too much. I need a lie down. Now where's my portable mattress? I usually carry it with me everywhere since I'm such a cautious person. Anyway, pleased to meet you.'"
 firstMsgEnerg = f"'🎵Laa Dee Daa, Doo Dee dee! I'm so full of energy!🎵 SO pleased to meet you. What wha-? You're like my, my doppleganger!'"
 dinners = ['English Breakfast', 'Roast Dinner', 'Lasagne', 'Spaghetti Bolognese', 'Pasta with no sauce', 'Spaghetti with Meatballs', 'Chicken Wings', 'Vegetarian Pie', 'Pasta Pesto', 'Vegetarian meat', 'Pizza']
-marketDin = "We sell English Breakfast, Roast Dinner, Lasagne, Spaghetti Bolognese, Pasta with no sauce, Spaghetti with Meatballs, Chicken Wings, Vegetarian Pie, Pasta Pesto, Vegetarian meat and Pizza. Which dinner do you wish to purchase?"
-
+marketDin = "'We sell English Breakfast, Roast Dinner, Lasagne, Spaghetti Bolognese, Pasta with no sauce, Spaghetti with Meatballs, Chicken Wings, Vegetarian Pie, Pasta Pesto, Vegetarian meat and Pizza. Which dinner do you wish to purchase?'"
+marketLunch = "'We sell Sandwiches, Crisps, Sausage Rolls, A range of salads, including Greek Salad, Caesar Salad, Lettuce and Rocket. Which lunch do you wish to purchase?'"
+marketDesert= ""
 
 # Intro
 if enableTest == False :
@@ -51,7 +52,12 @@ if enableTest == False :
     apt1Personal=input(f"Now {apt1Nick} needs a personality. How would you describe them? Choose between energetic, kind, cool and cautious.\n")
     time.sleep(2)
     apt1Birth=input(f"When was {apt1Nick} born? Please use UK format, e.g. 13/04/2001\n")
-    print("Now your lookalike is ready! Let's visit their apartment.\n\n")
+    if apt1Gender == "male" :
+        print("Now your lookalike is ready! Let's visit his apartment.\n\n")
+    if apt1Gender == "female" :
+        print("Now your lookalike is ready! Let's visit her apartment.\n\n")
+    if apt1Gender == "non-binary" :
+        print("Now your lookalike is ready! Let's visit their apartment.\n\n")
     time.sleep(3)
     gameStart=True
 
@@ -78,6 +84,15 @@ if gameStart == True :
     time.sleep(3)
     print("How quick! It's already finished. Let's go inside.\n\n")
     time.sleep(1)
-    crntbuy=input(marketintro)
-    if crntbuy == "dinner" :
-        crntbuy=input(marketDin)
+    initBuy=input(marketIntro)
+    if initBuy == "dinner" :
+        initBuy=input(marketDin)
+    if initBuy == "lunch" :
+        initBuy=input(marketLunch)
+    if initBuy == "desert" :
+        initBuy=input()
+    if initBuy == "drinks" :
+        initBuy=input()
+    print(f"You have just bought {apt1Nick}'s first consumable!")
+    time.sleep(1)
+    print("Let's head back to the apartment building.")
